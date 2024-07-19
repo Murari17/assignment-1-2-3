@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import styles from './styles';
+import { View, Text, TextInput, Button } from 'react-native';
+import styles from './styles'; 
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
-    name: 'Osama bin Laden',
-    email: 'osamabeenlagging@gmail.com',
+    name: 'ABC',
+    email: 'abc@gmail.com',
   });
 
   const [editProfile, setEditProfile] = useState({ ...profile });
@@ -29,13 +29,13 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.box}>
-        <Text style={styles.heading}>Profile</Text>
+      <Text style={styles.heading}>Profile</Text>
+      <View style={styles.profileContent}>
         {isEditing ? (
           <>
             <Text style={styles.label}>Name:</Text>
             <TextInput
-              style={[styles.input, styles.inputText]}
+              style={styles.input}
               value={editProfile.name}
               onChangeText={(text) => handleInputChange('name', text)}
               placeholder="Enter your name"
@@ -43,22 +43,22 @@ const Profile = () => {
             />
             <Text style={styles.label}>Email:</Text>
             <TextInput
-              style={[styles.input, styles.inputText]}
+              style={styles.input}
               value={editProfile.email}
               onChangeText={(text) => handleInputChange('email', text)}
               placeholder="Enter your email"
               placeholderTextColor="#888"
             />
             <View style={styles.buttonContainer}>
-              <Button title="Save" onPress={handleSave} />
-              <Button title="Cancel" onPress={handleEditToggle} />
+              <Button title="Save" onPress={handleSave} color="#007BFF" />
+              <Button title="Cancel" onPress={handleEditToggle} color="#6C757D" />
             </View>
           </>
         ) : (
           <>
             <Text style={styles.label}>Name: {profile.name}</Text>
             <Text style={styles.label}>Email: {profile.email}</Text>
-            <Button title="Edit" onPress={handleEditToggle} />
+            <Button title="Edit" onPress={handleEditToggle} color="#007BFF" />
           </>
         )}
       </View>
