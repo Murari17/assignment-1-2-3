@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import CustomTextInput from './CustomTextInput';
-import styles from './styles'; // Import your styles
+import styles from './styles';
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState('');
@@ -10,12 +10,13 @@ const RegisterScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>REGISTER</Text>
+      <Text style={styles.heading}>REGISTER</Text>
       <CustomTextInput
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
         placeholderTextColor="gray"
+        style={styles.input}
       />
       <CustomTextInput
         placeholder="Password"
@@ -23,6 +24,7 @@ const RegisterScreen = () => {
         onChangeText={setPassword}
         secureTextEntry
         placeholderTextColor="gray"
+        style={styles.input}
       />
       <CustomTextInput
         placeholder="Confirm Password"
@@ -30,8 +32,9 @@ const RegisterScreen = () => {
         onChangeText={setConfirmPassword}
         secureTextEntry
         placeholderTextColor="gray"
+        style={styles.input}
       />
-      <Button title="Register" onPress={() => {}} />
+      <Button title="Register" onPress={() => {}} color="#007BFF" />
     </View>
   );
 };
