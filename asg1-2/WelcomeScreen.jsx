@@ -4,9 +4,15 @@ import styles from './styles';
 
 const WelcomeScreen = ({ setCurrentScreen }) => {
   return (
-    <View style={styles.box}>
-      <Text style={styles.title}>Welcome to the App!</Text>
-      <Button title="Go to Login" onPress={() => setCurrentScreen('Login')} />
+    <View style={styles.container}>
+      <Text style={styles.heading}>Welcome to the App!</Text>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Go to Login"
+          onPress={() => setCurrentScreen('Login')}
+          color="#007BFF"
+        />
+      </View>
     </View>
   );
 };
