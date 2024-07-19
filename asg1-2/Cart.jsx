@@ -1,4 +1,3 @@
-// Cart.jsx
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { CartContext } from './CartContext';
