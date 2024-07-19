@@ -2,23 +2,22 @@ import React, { useState } from 'react';
 import { View, FlatList, Button, SafeAreaView, Text, StyleSheet } from 'react-native';
 import ProductCard from './ProductCard';
 import ProductDetails from './ProductDetails';
-import { Video } from 'react-native';
 
 const ProductList = () => {
   const [isSingleColumn, setIsSingleColumn] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const products = [
-    { id: '1', title: 'Kuronami Vandal', price: "2375 VP", rating: 4.5, discount: 10, image: 'https://cdn.gameboost.com/accounts/88982/gallery/conversions/a5a796f5-bc6c-425e-90b0-ea18248c5941-webp.webp?v=1716676719' },
-    { id: '2', title: 'Ruination Phantom', price: "2175 VP", rating: 4.0, discount: 5, image: 'https://valorantstrike.com/wp-content/uploads/2021/07/Valorant-Ruination-Phantom-Green-Article.jpg' },
-    { id: '3', title: 'Oni Phantom', price: "2275 VP", rating: 4.8, discount: 15, image: 'https://valorantstrike.com/wp-content/uploads/2020/07/Valorant-Oni-Collection-Phantom-HD.jpg' },
-    { id: '4', title: 'Elderflame Vandal', price: "2675 VP", rating: 4.7, discount: 20, image: 'https://images.1v9.gg/elderflame%20vandal-a11dfb7a2d86.webp' },
-    { id: '5', title: 'Sovereign Ghost', price: "1875 VP", rating: 4.6, discount: 10, image: 'https://dotesports.com/wp-content/uploads/2023/06/Sovereign_Ghost.png?w=640' },
-    { id: '6', title: 'Ion Sheriff', price: "1775 VP", rating: 4.9, discount: 15, image: 'https://valorantstrike.com/wp-content/uploads/2020/11/Valorant-Ion-Collection-Sheriff-HD.jpg' },
-    { id: '7', title: 'Reaver Operator', price: "4500 VP", rating: 4.8, discount: 20, image: 'https://valorantstrike.com/wp-content/uploads/2020/11/Valorant-Reaver-Collection-Operator-Red-Variant.jpg' },
-    { id: '8', title: 'Glitchpop Odin', price: "3200 VP", rating: 4.5, discount: 10, image: 'https://valorantstrike.com/wp-content/uploads/2020/08/Valorant-Glitchpop-Collection-Odin-HD.jpg' },
-    { id: '9', title: 'Reaver Karambit', price: "3500 VP", rating: 5.0, discount: 25, image: 'https://valorantstrike.com/wp-content/uploads/Valorant-Reaver-2-Collection-Karambit-Small.jpg' },
-    { id: '10', title: 'Prime Classic', price: "2000 VP", rating: 5.0, discount: 25, image: 'https://valorantstrike.com/wp-content/uploads/2020/06/Valorant-Prime-Classic-Blue-Variant-2.jpg' },
+    { id: '1', title: 'Rolex Submariner', price: "$9,000", rating: 4.9, discount: 5, image: 'https://www.watchaser.com/cdn/shop/products/m126618lb-0002_013_grande.webp?v=1675510757' },
+    { id: '2', title: 'Omega Seamaster', price: "$5,500", rating: 4.8, discount: 10, image: 'https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/o/m/omega-seamaster-210-30-44-51-03-001-large.jpg' },
+    { id: '3', title: 'Tag Heuer Carrera', price: "$4,800", rating: 4.7, discount: 8, image: 'https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/t/a/tag-heuer-carrera-cbn201c-fc6542-large.jpg' },
+    { id: '4', title: 'Audemars Piguet Royal Oak', price: "$15,000", rating: 4.9, discount: 12, image: 'https://images.secondmovement.com/media/catalog/product/cache/105b3c9229095e8c1e373d2e9464b4da/a/u/audemars-piguet-royal-oak-15400st-oo-1220st-02-powg19a-large.jpg' },
+    { id: '5', title: 'Patek Philippe Nautilus', price: "$30,000", rating: 5.0, discount: 15, image: 'https://www.watchaser.com/cdn/shop/products/5811_1G_001_1_2x_003_800x.jpg?v=1676215077' },
+    { id: '6', title: 'Breitling Navitimer', price: "$7,000", rating: 4.6, discount: 7, image: 'https://www.breitling.com/multimedia/images/configurator2011/images_dynamic/jpg/site/FFFFFF/asset-version-bec74381e5/AB013721-CA99-463A.jpg' },
+    { id: '7', title: 'IWC Portugieser', price: "$12,000", rating: 4.8, discount: 10, image: 'https://artoftimeindia.com/cdn/shop/products/IW503302.jpg?v=1603468240' },
+    { id: '8', title: 'Cartier Tank', price: "$6,000", rating: 4.5, discount: 6, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7oTONWNCcbf-cdCkOkztDce5t0SVE5TzBhg&s' },
+    { id: '9', title: 'Jaeger-LeCoultre Reverso', price: "$11,000", rating: 4.7, discount: 9, image: 'https://artoftimeindia.com/cdn/shop/files/Q389257J1_800x.jpg?v=1705398181' },
+    { id: '10', title: 'Hublot Big Bang', price: "$13,000", rating: 4.9, discount: 8, image: 'https://cdn1.ethoswatches.com/media/catalog/product/cache/2a50063f4776979c2a938462c3a0aee4/h/u/hublot-big-bang-421-ox-1180-rx.jpg' },
   ];
 
   const toggleLayout = () => {
@@ -31,12 +30,6 @@ const ProductList = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Video
-        source={require('C:\Users\murar\OneDrive\Desktop\video')}
-        style={styles.video}
-        resizeMode="cover"
-        repeat
-      />
       <View style={styles.header}>
         <Text style={styles.headerText}>Product List</Text>
         <Button title="Toggle Layout" onPress={toggleLayout} />
@@ -60,6 +53,8 @@ const ProductList = () => {
           )}
           key={isSingleColumn ? 'ONE_COLUMN' : 'TWO_COLUMNS'}
           contentContainerStyle={styles.list}
+          initialNumToRender={10} // Adjust based on your preference
+          maxToRenderPerBatch={10} // Adjust based on your preference
         />
       )}
     </SafeAreaView>
@@ -70,13 +65,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
-  },
-  video: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
   },
   header: {
     flexDirection: 'row',
