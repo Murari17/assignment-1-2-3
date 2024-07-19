@@ -1,6 +1,5 @@
-// ProductDetails.jsx
 import React, { useState, useContext } from 'react';
-import { View, Text, Image, Button, StyleSheet } from 'react-native';
+import { View, Text, Image, Button, StyleSheet, SafeAreaView } from 'react-native';
 import { CartContext } from './CartContext';
 
 const ProductDetails = ({ product, onBack }) => {
@@ -12,13 +11,17 @@ const ProductDetails = ({ product, onBack }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Button title="Back" onPress={onBack} />
       <Image source={{ uri: product.image }} style={styles.image} />
       <Text style={styles.title}>{product.title}</Text>
       <Text style={styles.price}>${product.price}</Text>
       <Text style={styles.rating}>Rating: {product.rating}</Text>
       <Text style={styles.discount}>Discount: {product.discount}%</Text>
+
+      <Text style={styles.description}>
+        This {product.title} is a high-quality watch, known for its elegance and precision. Crafted with the finest materials, this watch features a {product.specialFeature} that sets it apart from others. Perfect for both casual and formal wear, the {product.title} offers reliability and style.
+      </Text>
 
       <Text style={styles.quantityLabel}>Quantity:</Text>
       <View style={styles.quantityContainer}>
@@ -29,10 +32,7 @@ const ProductDetails = ({ product, onBack }) => {
 
       <Button title="Add to Cart" onPress={handleAddToCart} />
 
-      <Text style={styles.reviewsHeader}>Reviews:</Text>
-      <Text style={styles.review}>Great product! Highly recommend.</Text>
-      <Text style={styles.review}>Loved it! Worth every VP.</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -68,6 +68,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'red',
     marginBottom: 16,
+  },
+  description: {
+    fontSize: 16,
+    color: '#FFF',
+    marginBottom: 16,
+    textAlign: 'center',
   },
   quantityLabel: {
     fontSize: 18,
