@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginVertical: 10,
     color: 'white',
-    width: '100%', // Ensure full width
+    width: '100%',
     borderRadius: 4,
     paddingHorizontal: 10,
     textAlign: 'center',
-    minWidth: 250, // Set a minimum width for consistent placeholder length
+    minWidth: 250,
   },
 });
 
