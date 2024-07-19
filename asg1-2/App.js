@@ -8,13 +8,13 @@ import ProductList from './ProductList';
 import CartSummary from './CartSummary';
 import { CartProvider } from './CartContext';
 
-function App() {
+const App = () => {
   const [currentScreen, setCurrentScreen] = useState('Welcome');
   const [menuVisible, setMenuVisible] = useState(false);
   const slideAnimation = useState(new Animated.Value(-250))[0];
 
   const toggleMenu = () => {
-    setMenuVisible(!menuVisible);
+    setMenuVisible(prevState => !prevState);
     Animated.timing(slideAnimation, {
       toValue: menuVisible ? -250 : 0,
       duration: 300,
@@ -27,9 +27,9 @@ function App() {
       case 'Welcome':
         return <WelcomeScreen setCurrentScreen={setCurrentScreen} />;
       case 'Login':
-        return <LoginScreen />;
+        return <LoginScreen setCurrentScreen={setCurrentScreen} />;
       case 'Register':
-        return <RegisterScreen />;
+        return <RegisterScreen setCurrentScreen={setCurrentScreen} />;
       case 'Profile':
         return <Profile />;
       case 'ProductList':
@@ -76,37 +76,48 @@ function App() {
       </SafeAreaView>
     </CartProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#000',
   },
   navbar: {
-    height: 60,
-    backgroundColor: '#f8f8f8',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 15,
+    backgroundColor: '#000',
+    padding: 10,
+    width: '100%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#333',
+    position: 'absolute',
+    top: 40,
+    zIndex: 10,
   },
   navbarButton: {
-    fontSize: 18,
-    color: '#007AFF',
+    color: '#FFF',
+    fontSize: 16,
   },
   menu: {
     position: 'absolute',
-    top: 60,
     left: 0,
+    top: 60,
+    bottom: 0,
     width: 250,
-    height: '100%',
-    backgroundColor: '#fff',
-    paddingTop: 20,
-    paddingHorizontal: 20,
+    backgroundColor: '#333',
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
+    justifyContent: 'center',
+    padding: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
     zIndex: 10,
-    elevation: 10,
   },
   menuItem: {
+    color: '#FFF',
     fontSize: 18,
     marginVertical: 10,
   },
@@ -116,11 +127,12 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: 5,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    zIndex: 9,
   },
   box: {
     flex: 1,
+    marginTop: 60,
   },
 });
 
